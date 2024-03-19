@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        input, button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora Simples</h1>
+
+    <input type="text" id="display" disabled>
+
+    <br>
+
+    <button onclick="limpar()">C</button>
+    <button onclick="concatenar('7')">7</button>
+    <button onclick="concatenar('8')">8</button>
+    <button onclick="concatenar('9')">9</button>
+    <button onclick="operacao('/')">/</button>
+
+    <br>
+
+    <button onclick="concatenar('4')">4</button>
+    <button onclick="concatenar('5')">5</button>
+    <button onclick="concatenar('6')">6</button>
+    <button onclick="operacao('*')">*</button>
+
+    <br>
+
+    <button onclick="concatenar('1')">1</button>
+    <button onclick="concatenar('2')">2</button>
+    <button onclick="concatenar('3')">3</button>
+    <button onclick="operacao('-')">-</button>
+
+    <br>
+
+    <button onclick="concatenar('0')">0</button>
+    <button onclick="concatenar('.')">.</button>
+    <button onclick="calcular()">=</button>
+    <button onclick="operacao('+')">+</button>
+
+    <script>
+        let valorAtual = '';
+        let valorAnterior = '';
+        let operacaoAtual = '';
+
+        function concatenar(valor) {
+            valorAtual += valor;
+            atualizarDisplay();
+        }
+
+        function operacao(operacao) {
+            if (valorAtual !== '') {
+                valorAnterior = valorAtual;
+                valorAtual = '';
+                operacaoAtual = operacao;
+                atualizarDisplay();
+            }
+        }function calcular() {
+            if (valorAtual !== '' && valorAnterior !== '') {
+                switch (operacaoAtual) {
+                    case '+':
+                        valorAtual = String(parseFloat(valorAnterior) + parseFloat(valorAtual));
+                        break;
+                    case '-':
+                        valorAtual = String(parseFloat(valorAnterior) - parseFloat(valorAtual));
+                        break;
+                    case '*':
+                        valorAtual = String(parseFloat(valorAnterior) * parseFloat(valorAtual));
+                        break;
+                    case '/':
+                        valorAtual = String(parseFloat(valorAnterior) / parseFloat(valorAtual));
+                        break;
+                }
+                valorAnterior = '';
+                operacaoAtual = '';
+                atualizarDisplay();
+            }
+        }
+
+        function limpar() {
+            valorAtual = '';
+            valorAnterior = '';
+            operacaoAtual = '';
+            atualizarDisplay();
+        }
+        
+
+        function atualizarDisplay() {
+            document.getElementById('display').value = valorAtual;
+        }
+        
+    </script>

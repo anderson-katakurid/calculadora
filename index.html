@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <div id="one">
+        <label for="display" id="calculadora">Calculadora</label>
+         <input type="text" name="display" id="display">
+    <div class="calculo">
+        <label for=""></label>
+        <input type="button" value="C" onclick="limpar('ce')" id="limpo">
+        <label for=""></label>
+        <input type="button" value="÷" onclick="operacao('/')">
+        <label for=""></label>
+        <input type="button" value="√" onclick="operacao('**')">
+    </div>
+        <div class="calculo">
+            <label for=""></label>
+            <input type="button" value="7" onclick="concatenar('7')">
+            <label for=""></label>
+            <input type="button" value="8" onclick="concatenar('8')">
+            <label for=""></label>
+            <input type="button" value="9" onclick="concatenar('9')">
+            <label for=""></label>
+            <input type="button" value="x" onclick="operacao('*')">
+        </div>
+        <div class="calculo">
+            <label for=""></label>
+            <input type="button" value="4" onclick="concatenar('4')">
+            <label for=""></label>
+            <input type="button" value="5" onclick="concatenar('5')">
+            <label for=""></label>
+            <input type="button" value="6" onclick="concatenar('6')">
+            <label for=""></label>
+            <input type="button" value="-" onclick="operacao('-')">
+        </div>
+        <div class="calculo">
+            <label for=""></label>
+            <input type="button" value="1" onclick="concatenar('1')">
+            <label for=""></label>
+            <input type="button" value="2" onclick="concatenar('2')">
+            <label for=""></label>
+            <input type="button" value="3" onclick="concatenar('3')">
+            <label for=""></label>
+            <input type="button" value="+" onclick="operacao('+')">
+        </div>
+         <div class="calculo"> 
+            <label for=""></label>
+            <input type="button" value="0" id="zero" onclick="concatenar('0')">
+            <label for=""></label>
+            <input type="button" value="," onclick="concatenar(',')">
+            <label for=""></label>
+            <input type="button" value="=" onclick="calcular()">
+        </div>
+        
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
