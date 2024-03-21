@@ -10,7 +10,7 @@
     <main>
     <div id="one">
         <label for="display" id="calculadora">Calculadora</label>
-         <input type="text" name="display" id="display">
+         <input type="text" name="display" id="display" maxlength="13" readonly>
     <div class="calculo">
         <label for=""></label>
         <input type="button" value="C" onclick="limpar('ce')" id="limpo">
@@ -53,13 +53,40 @@
             <label for=""></label>
             <input type="button" value="0" id="zero" onclick="concatenar('0')">
             <label for=""></label>
-            <input type="button" value="," onclick="concatenar(',')">
+            <input type="button" value="." onclick="concatenar('.')">
             <label for=""></label>
             <input type="button" value="=" onclick="calcular()">
         </div>
         
         </div>
     </main>
-    <script src="script.js"></script>
+    <script>
+    var valores = '';
+
+    function concatenar(numero) {
+        valores += numero;
+        document.getElementById('display').value = valores
+}
+
+    function operacao(operador) {
+        valores += operador;
+        document.getElementById('display').value = valores
+}
+
+    function limpar() {
+        valores = '';
+        document.getElementById('display').value = '';
+}
+
+    function calcular() {
+        try {
+           var resultado = eval(valores);
+           document.getElementById('display').value = resultado;
+           valores = resultado.toString();
+        } catch (error) {
+        document.getElementById('display').value = 'Erro';
+    }
+}
+    </script>
 </body>
 </html>
